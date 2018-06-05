@@ -1,0 +1,63 @@
+#GamePad {
+    width: 100%;
+    position: static;
+    font-family: consolas;
+}
+
+#LstickInfo {
+    font-family: consolas;
+    float: left;
+    text-align: center;
+    /* position: fixed; */
+    height: 20px;
+    width: 150px;
+    background-color: black;
+    color: white;
+}
+
+#Info {
+    font-family: consolas;
+    text-align: center;
+    height: 20px;
+    width: 50%;
+    background-color: black;
+    color: lime;
+}
+
+#RstickInfo {
+    font-family: consolas;
+    float: right;
+    text-align: center;
+    /* position: fixed; */
+    height: 20px;
+    width: 150px;
+    background-color: black;
+    color: white;
+}
+
+#Lstick {
+    float: left;
+    text-align: center;
+    /* position: fixed; */
+    height: 150px;
+    width: 150px;
+    background-color: black;
+    color: white;
+}
+
+#controlInfo {
+    font-family: consolas;
+    text-align: center;
+    width: 50%;
+    background: lightblue;
+}
+
+#Rstick {
+    float: right;
+    text-align: center;
+    /* position: fixed; */
+    height: 150px;
+    width: 150px;
+    background-color: black;
+    color: white;
+}

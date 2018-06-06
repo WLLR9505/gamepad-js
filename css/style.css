@@ -1,10 +1,10 @@
-#GamePad {
+.GamePad {
     width: 100%;
     position: static;
     font-family: consolas;
 }
 
-#LstickInfo {
+.LstickInfo {
     font-family: consolas;
     float: left;
     text-align: center;
@@ -15,7 +15,7 @@
     color: white;
 }
 
-#Info {
+.Info {
     font-family: consolas;
     text-align: center;
     height: 20px;
@@ -24,7 +24,7 @@
     color: lime;
 }
 
-#RstickInfo {
+.RstickInfo {
     font-family: consolas;
     float: right;
     text-align: center;
@@ -35,7 +35,7 @@
     color: white;
 }
 
-#Lstick {
+.Lstick {
     float: left;
     text-align: center;
     /* position: fixed; */
@@ -45,14 +45,14 @@
     color: white;
 }
 
-#controlInfo {
+.controlInfo {
     font-family: consolas;
     text-align: center;
     width: 50%;
     background: lightblue;
 }
 
-#Rstick {
+.Rstick {
     float: right;
     text-align: center;
     /* position: fixed; */

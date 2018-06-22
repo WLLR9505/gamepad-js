@@ -79,8 +79,7 @@ window.addEventListener('gamepaddisconnected', function () {
 });
 
 function createPadUI () {
-    let nGp,
-        i = 0;
+    let i = 0;
     do {
         let vp = new visualPad(gamepads[i], i);
         visualPadList.push(vp);
@@ -115,7 +114,6 @@ function buttonPressed (b) {
 }
 
 function checkAxes (L = 2, R = 2, i) {
-    var t = 0;
     //L
     if (L[0] > 0) {   //x
         visualPadList[i].LsPoint.style.left = (75 + (5 * L[0])) + 'px';
@@ -160,7 +158,7 @@ function gamepadLoop (agp, i) {
     agp.info.innerHTML = '';
     //A X Y B
     if (buttonPressed(gp.buttons[0])) {
-        agp.info.innerHTML += 'A';
+        agp.info.innerHTML += 'A ';
     }
     if (buttonPressed(gp.buttons[1])) {
         agp.info.innerHTML += 'B ';

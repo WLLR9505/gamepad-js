@@ -3,6 +3,7 @@ var gamepads, gp,
     Raxes = [ 2 ],
     visualPadList = new Array();
 var grid = document.getElementById('GPgrid');
+var xboxButtons = [ 'A', 'B', 'X', 'Y', 'LB', 'RB', 'LT', 'RT', 'BACK', 'START', 'analog L', 'analog R', 'up', 'down', 'left', 'right' ];
 
 window.addEventListener('gamepadconnected', createPadUI);
 window.addEventListener('load', windowLoaded);
@@ -23,7 +24,7 @@ function visualPad (gp, n) {
     grid.appendChild(this.gamepadUI);
 
     //Linha 1 ( L(x/y) botao pressionado R(x/y))
-    this.gamepadInfo = newElement('tr', 'GamepadInfo', n);  //// BUG: provavel bug no layout
+    this.gamepadInfo = newElement('tr', 'GamepadInfo', n);
     if (gp.axes != undefined) { //caso tenha analógicos
         this.LstickInfo = newElement('td', 'LstickInfo', n);
         this.gamepadInfo.appendChild(this.LstickInfo);
@@ -105,7 +106,6 @@ function pollGamepads () {
         }
     }
 }
-// setInterval(gamepadLoop, 60);
 
 function buttonPressed (b) {
     if (b.pressed == true) {
@@ -115,36 +115,11 @@ function buttonPressed (b) {
 
 function checkAxes (L = 2, R = 2, i) {
     //L
-    if (L[0] > 0) {   //x
-        visualPadList[i].LsPoint.style.left = (75 + (5 * L[0])) + 'px';
-        //dir
-    } else {
-        visualPadList[i].LsPoint.style.left = (75 + (5 * L[0])) + 'px';
-        //esq
-    }
-    if (L[1] > 0) {   //y
-        visualPadList[i].LsPoint.style.top = (75 + (5 * L[1])) + 'px';
-        //des
-    } else {
-        visualPadList[i].LsPoint.style.top = (75 + (5 * L[1])) + 'px';
-        //sob
-    }
-    //-------------------------------------------------------
+    visualPadList[i].LsPoint.style.left = (75 + (5 * L[0])) + 'px';
+    visualPadList[i].LsPoint.style.top = (75 + (5 * L[1])) + 'px';
     //R
-    if (R[0] > 0) {   //x
-        visualPadList[i].RsPoint.style.left = (75 + (5 * R[0])) + 'px';
-        //dir
-    } else {
-        visualPadList[i].RsPoint.style.left = (75 + (5 * R[0])) + 'px';
-        //esq
-    }
-    if (R[1] > 0) {   //y
-        visualPadList[i].RsPoint.style.top = (75 + (5 * R[1])) + 'px';
-        //des
-    } else {
-        visualPadList[i].RsPoint.style.top = (75 + (5 * R[1])) + 'px';
-        //sob
-    }
+    visualPadList[i].RsPoint.style.left = (75 + (5 * R[0])) + 'px';
+    visualPadList[i].RsPoint.style.top = (75 + (5 * R[1])) + 'px';
 }
 
 function gamepadLoop (agp, i) {
@@ -156,58 +131,12 @@ function gamepadLoop (agp, i) {
 
     gp = gamepads[i]; //armazena em 'gp' o gamepad ativo
     agp.info.innerHTML = '';
-    //A X Y B
-    if (buttonPressed(gp.buttons[0])) {
-        agp.info.innerHTML += 'A ';
-    }
-    if (buttonPressed(gp.buttons[1])) {
-        agp.info.innerHTML += 'B ';
-    }
-    if (buttonPressed(gp.buttons[2])) {
-        agp.info.innerHTML += 'X ';
-    }
-    if (buttonPressed(gp.buttons[3])) {
-        agp.info.innerHTML += 'Y ';
-    }
-    // L R
-    if (buttonPressed(gp.buttons[4])) {
-        agp.info.innerHTML += 'LB ';
-    }
-    if (buttonPressed(gp.buttons[6])) {
-        agp.info.innerHTML += 'LT ';
-    }
-    if (buttonPressed(gp.buttons[5])) {
-        agp.info.innerHTML += 'RB ';
-    }
-    if (buttonPressed(gp.buttons[7])) {
-        agp.info.innerHTML += 'RT ';
-    }
 
-    if (buttonPressed(gp.buttons[8])) {
-        agp.info.innerHTML += 'back ';
-    }
-    if (buttonPressed(gp.buttons[9])) {
-        agp.info.innerHTML += 'start ';
-    }
-    if (buttonPressed(gp.buttons[10])) {
-        agp.info.innerHTML += 'analog L ';
-    }
-    if (buttonPressed(gp.buttons[11])) {
-        agp.info.innerHTML += 'analog R ';
-    }
-    if (buttonPressed(gp.buttons[12])) {
-        agp.info.innerHTML += 'up ';
-    }
-    if (buttonPressed(gp.buttons[13])) {
-        agp.info.innerHTML += 'down ';
-    }
-    if (buttonPressed(gp.buttons[14])) {
-        agp.info.innerHTML += 'left ';
-    }
-    if (buttonPressed(gp.buttons[15])) {
-        // alert('direita');
-        agp.info.innerHTML += 'right ';
-    }
+    for (var x = 0; x < gp.buttons.length; x++) {
+        if (buttonPressed(gp.buttons[x])) {
+            agp.info.innerHTML += xboxButtons[x] + ' ';
+        }   //se foram pressionados, exibe na interface
+    }   //passa por todos os botões e verifica se foram pressionados
 
     Laxes[0] = Math.round(10 * gp.axes[0]);       // L x
     Laxes[1] = Math.round(10 * gp.axes[1]);       // L y

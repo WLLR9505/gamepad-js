@@ -73,19 +73,24 @@ function visualPad (gp, n) {
 }
 
 function windowLoaded () {
+    grid.innerHTML = 'Waiting for gamepad[...]';
     setInterval(pollGamepads, 60);
 }
 window.addEventListener('gamepaddisconnected', function () {
-    grid.innerHTML = 'Waiting for gamepad.';
+    grid.innerHTML = 'Waiting for gamepad[...]';
+    visualPadList.pop();
 });
 
 function createPadUI () {
     let i = 0;
-    do {
-        let vp = new visualPad(gamepads[i], i);
-        visualPadList.push(vp);
-        i++;
-    } while (gamepads[i] != undefined);
+    if (gamepads.length > 0) {
+        grid.innerHTML = '';
+        do {
+            let vp = new visualPad(gamepads[i], i);
+            visualPadList.push(vp);
+            i++;
+        } while (gamepads[i] != undefined);
+    }
 
     pollGamepads();
     gamepadLoop();
@@ -100,6 +105,9 @@ function pollGamepads () {
     for (var i = 0; i < gamepads.length; i++) {
         gp = gamepads[i];
         if (gp) {
+            if (visualPadList.length == 0) {
+                createPadUI();
+            }
             visualPadList[i].controlInfo.innerHTML = '<br>' + 'Index ' + gp.index + ': ' + gp.id + ' ' + gp.buttons.length + ' buttons and ' + gp.axes.length + ' axes.';
             gamepadLoop(visualPadList[i], i);
             clearInterval(interval);

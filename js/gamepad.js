@@ -49,8 +49,8 @@ function visualPad (gp, n) {
         this.LsPoint.style.position = 'relative';
         this.LsPoint.style.left = (this.Lstick.clientWidth / 2) + 'px';
         this.LsPoint.style.top = (this.Lstick.clientHeight / 2) + 'px';
-        this.LsPoint.style.backgroundColor = 'cyan';
-        this.Lstick.style.border = '1px solid cyan';
+        this.LsPoint.style.backgroundColor = 'black';
+        this.Lstick.style.border = '5px solid black';
         this.Lstick.appendChild(this.LsPoint);
     }
     this.controlInfo = newElement('td', 'controlInfo', n);
@@ -65,8 +65,8 @@ function visualPad (gp, n) {
         this.RsPoint.style.top = (this.Rstick.clientHeight / 2) + 'px';
         this.RsPoint.style.width = '10px';
         this.RsPoint.style.height = '10px';
-        this.RsPoint.style.backgroundColor = 'red';
-        this.Rstick.style.border = '1px solid red';
+        this.RsPoint.style.backgroundColor = 'black';
+        this.Rstick.style.border = '5px solid black';
         this.Rstick.appendChild(this.RsPoint);
     }
     this.gamepadUI.appendChild(this.extraInfo);

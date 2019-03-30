@@ -3,6 +3,9 @@
 
 ### Preview
 [gamepad-js](https://wllr9505.github.io/gamepad-js/)
+---
+![demo](./img/demo.gif)
+---
 
 Exemplo de uso da Gamepad API  
 

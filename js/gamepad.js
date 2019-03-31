@@ -1,3 +1,5 @@
+import { changeTheme, updateTheme, themes } from './themes.js'
+
 var gamepads, gp,
     Laxes = [ 2 ],
     Raxes = [ 2 ],
@@ -7,6 +9,9 @@ var xboxButtons = [ 'A', 'B', 'X', 'Y', 'LB', 'RB', 'LT', 'RT', 'BACK', 'START',
 
 window.addEventListener('gamepadconnected', createPadUI);
 window.addEventListener('load', windowLoaded);
+grid.addEventListener('click', () => {
+    updateTheme(themes[changeTheme()]);
+})
 
 function newElement (tipo, classe, id) {
     var el = document.createElement(tipo);

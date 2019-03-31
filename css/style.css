@@ -16,7 +16,6 @@ table {
     font-family: consolas;
     float: left;
     text-align: center;
-    /* position: fixed; */
     height: 20px;
     width: 150px;
     background-color: #005959;
@@ -36,7 +35,6 @@ table {
     font-family: consolas;
     float: right;
     text-align: center;
-    /* position: fixed; */
     height: 20px;
     width: 150px;
     background-color: #590000;
@@ -46,7 +44,6 @@ table {
 .Lstick {
     float: left;
     text-align: center;
-    /* position: fixed; */
     height: 150px;
     width: 150px;
     background-color: cyan;
@@ -59,13 +56,12 @@ table {
     width: 100%;
     min-width: 50%;
     color: cyan;
-    background: #16161d;
+    background-color: #16161d;
 }
 
 .Rstick {
     float: right;
     text-align: center;
-    /* position: fixed; */
     height: 150px;
     width: 150px;
     background-color: red;
